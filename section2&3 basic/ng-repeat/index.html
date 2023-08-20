@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script scr = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"></script>
+    <script src="script.js"></script>
+</head>
+
+<body ng-app="todo" ng-controller="TodoCtrl">
+<ul>
+    <li ng-repeat="todo in todos">
+        <!--실제 모델도 변경-->
+        <!--ng-model을 양방향 바인드라고 함-->
+        <input type="text" ng-model="todo.title">
+        <input type="checkbox" ng-model="todo.completed">
+        <date>{{todo.createdAt}}</date>
+    </li>
+</ul>
+
+</div>
+</body>
+</html>

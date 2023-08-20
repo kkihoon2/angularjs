@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script scr = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"></script>
+    <script src="script.js"></script>
+</head>
+
+<body ng-app="todo" ng-controller="TodoCtrl">
+<div class="container">
+    <ul>
+        <!--filter 걸어주기-->
+        <li ng-repeat="todo in todos | filter : statusFilter">
+            <!--실제 모델도 변경-->
+            <!--ng-model을 양방향 바인드라고 함-->
+            <input type="text" ng-model="todo.title">
+
+            <button class="btn btn-danger" type="DELETE" ng-click="remove(todo)" >Button</button>
+
+            <input type="checkbox" ng-model="todo.completed">
+            <!--datefillter 추가 https://docs.angularjs.org/api/ng/filter/date-->
+            <date>{{todo.createdAt | date }}</date>
+            <date>{{todo.createdAt | date : 'yyyy-mm-dd' }}</date>
+            <date>{{todo.createdAt | date : 'yyyy-mm-dd HH:mm:ss' }}</date>
+        </li>
+    </ul>
+    <button class = "btn btn-primary" ng-click="statusFilter = {completed : true}">Completed</button>
+    <button class = "btn btn-primary" ng-click="statusFilter = {completed : false}">Active</button>
+    <button class = "btn btn-primary" ng-click="statusFilter = {}">All</button>
+
+</div>
+
+</body>
+</html>
