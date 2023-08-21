@@ -1,0 +1,9 @@
+-key,value 저장소
+-localStorage.setItem(key,value)
+-localStorage.getItem(key)
+-입력은 무조건 STring
+-최대 5mb
+-크롬은 SQLite사용
+
+-localStorage.length
+-

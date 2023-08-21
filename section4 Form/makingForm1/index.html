@@ -12,9 +12,24 @@
 <h1>todotod</h1>
 
 <form name = "todoForm" ng-submit="add(newTodoTitle)">
-    <input type = "text" class="form-control" ng-model="newTodoTitle" placeholder="place new Todo" autofocus>
-    <button type="submit">add</button>
+    <div>
+        <input type = "text" class="form-control" ng-model="newTodoTitle" placeholder="place new Todo" minlength="3">
+        <button type="submit">add</button>
+    </div>
+
+    <!--작동안함 왠지모름-->
+    <div ng-show="todoForm.$dirty && todoForm.&invalid">
+        <div class ="alert alert-warning" role = "alert">3글자 이상 입력하세요</div>
+    </div>
+
 </form>
+
+<!--앵귤러 제공-->
+<!--앵귤러 제공 검증 valid minlength보다 작으면 false-->
+<!--<pre>{{todoForm | json}}}</pre>-->
+
+
+
 
 <div class="container">
     <ul>

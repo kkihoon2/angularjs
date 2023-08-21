@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo=Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script scr = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"></script>
+    <script src="app.js"></script>
+    <script src = directive.js></script>
+    <script src = "controllers.js"></script>
+    <script src = "services.js"></script>
+</head>
+
+<body ng-app="todo" ng-controller="TodoCtrl">
+
+<!--<h1>todotod</h1>-->
+
+<todo-title></todo-title>
+
+<todo-form></todo-form>
+
+<!--
+<form name = "todoForm" ng-submit="add(newTodoTitle)">
+    <div>
+        <input type = "text" class="form-control" ng-model="newTodoTitle" placeholder="place new Todo" minlength="3">
+        <button type="submit">add</button>
+    </div>
+
+    &lt;!&ndash;작동안함 왠지모름&ndash;&gt;
+    <div ng-show="todoForm.$dirty && todoForm.&invalid">
+        <div class ="alert alert-warning" role = "alert">3글자 이상 입력하세요</div>
+    </div>
+
+</form>
+-->
+
+<!--앵귤러 제공-->
+<!--앵귤러 제공 검증 valid minlength보다 작으면 false-->
+<!--<pre>{{todoForm | json}}}</pre>-->
+
+
+
+
+<div class="container">
+    <ul>
+        <!--filter 걸어주기-->
+        <li ng-repeat="todo in todos | filter : statusFilter">
+<!--            &lt;!&ndash;&lt;!&ndash;실제 모델도 변경&ndash;&gt;-->
+<!--            &lt;!&ndash;ng-model을 양방향 바인드라고 함&ndash;&gt;-->
+<!--            <input type="text" ng-model="todo.title">-->
+
+<!--            <button class="btn btn-danger" type="DELETE" ng-click="remove(todo)" >Button</button>-->
+
+<!--            <input type="checkbox" ng-model="todo.completed">-->
+<!--            &lt;!&ndash;datefillter 추가 https://docs.angularjs.org/api/ng/filter/date&ndash;&gt;-->
+<!--            <date>{{todo.createdAt | date }}</date>-->
+<!--            <date>{{todo.createdAt | date : 'yyyy-mm-dd' }}</date>-->
+<!--            <date>{{todo.createdAt | date : 'yyyy-mm-dd HH:mm:ss' }}</date>&ndash;&gt;-->
+            <todo-item></todo-item>
+        </li>
+    </ul>
+
+    <todo-filters></todo-filters>
+    <!--<button class = "btn btn-primary" ng-click="statusFilter = {completed : true}">Completed</button>
+    <button class = "btn btn-primary" ng-click="statusFilter = {completed : false}">Active</button>
+    <button class = "btn btn-primary" ng-click="statusFilter = {}">All</button>-->
+
+</div>
+
+</body>
+</html>

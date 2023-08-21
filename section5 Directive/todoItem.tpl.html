@@ -1,0 +1,11 @@
+<!--실제 모델도 변경-->
+<!--ng-model을 양방향 바인드라고 함-->
+<input type="text" ng-model="todo.title">
+
+<button class="btn btn-danger" type="DELETE" ng-click="remove(todo)" >Button</button>
+
+<input type="checkbox" ng-model="todo.completed">
+<!--datefillter 추가 https://docs.angularjs.org/api/ng/filter/date-->
+<date>{{todo.createdAt | date }}</date>
+<date>{{todo.createdAt | date : 'yyyy-mm-dd' }}</date>
+<date>{{todo.createdAt | date : 'yyyy-mm-dd HH:mm:ss' }}</date>
